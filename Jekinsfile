@@ -1,25 +1,25 @@
-pipeline{
+pipeline {
   agent any
-  
-  stages{
-    stage('checkout'){
+  stages {
+    stage('Build') {
       steps {
-        echo 'Hii'
+        echo 'Build Stage Successful'
       }
     }
-    stage('build'){
+    stage('Test') {
       steps {
-        echo 'Build stage'
+        echo 'Test stage successfull'
       }
     }
-    stage('deploy'){
+    stage('Deploy'){
       steps {
-        echo 'Deploy stage'
+        echo 'Deployment successful'
       }
     }
-    stage('test'){
-      steps {
-        echo 'Test stage'
+  }
+  post {
+      failure {
+          echo 'Pipeline failed'
       }
-    }
+  }
 }
